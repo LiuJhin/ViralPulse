@@ -80,6 +80,7 @@ const toggleSidebar = () => {
 }
 
 .layout-main {
+  flex: 1;
   padding: 20px;
   background-color: var(--el-bg-color-page);
   overflow-y: auto;

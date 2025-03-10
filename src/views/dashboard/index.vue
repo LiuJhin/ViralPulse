@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import DashboardCharts from '@/components/dashboard/DashboardCharts.vue'
 
 const welcomeMessage = ref('欢迎使用 ViralPulse 管理系统')
 </script>
@@ -43,6 +44,7 @@ const welcomeMessage = ref('欢迎使用 ViralPulse 管理系统')
         </el-row>
       </div>
     </el-card>
+    <DashboardCharts />
   </div>
 </template>
 
