@@ -5,18 +5,7 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      component: () => import('../layouts/DefaultLayout.vue'),
-      children: [
-        {
-          path: '',
-          name: 'home',
-          component: () => import('../views/home/index.vue'),
-          meta: {
-            title: '首页',
-            requiresAuth: true
-          }
-        }
-      ]
+      redirect: '/login'
     },
     {
       path: '/login',
@@ -26,6 +15,27 @@ const router = createRouter({
         title: '登录',
         requiresAuth: false
       }
+    },
+    {
+      path: '/layout',
+      component: () => import('../layout/index.vue'),
+      redirect: '/dashboard',
+      children: [
+        {
+          path: '/dashboard',
+          name: 'dashboard',
+          component: () => import('../views/dashboard/index.vue'),
+          meta: {
+            title: '仪表盘',
+            requiresAuth: true
+          }
+        },
+        {
+          path: '/:pathMatch(.*)*',
+          name: 'NotFound',
+          component: () => import('../views/404.vue')
+        }
+      ]
     }
   ]
 })
@@ -45,7 +55,7 @@ router.beforeEach((to, from, next) => {
     }
   } else {
     if (token && to.name === 'login') {
-      next({ name: 'home' })
+      next({ name: 'dashboard' })
     } else {
       next()
     }

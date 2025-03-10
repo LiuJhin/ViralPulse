@@ -1,0 +1,81 @@
+@use 'sass:color';
+@import './variables.scss';
+@import './mixins.scss';
+
+// 重置默认样式
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: $font-size-base;
+  line-height: 1.5;
+  color: $text-primary;
+  background-color: $background-color-base;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// 链接样式
+a {
+  color: $primary-color;
+  text-decoration: none;
+  @include transition(color);
+
+  &:hover {
+    color: color.adjust($primary-color, $lightness: 10%);
+  }
+}
+
+// 按钮基础样式
+button {
+  outline: none;
+  border: none;
+  cursor: pointer;
+  background: none;
+  padding: 0;
+}
+
+// 输入框基础样式
+input {
+  outline: none;
+  border: 1px solid $border-color-base;
+  padding: 8px 12px;
+  font-size: $font-size-base;
+  border-radius: $border-radius-base;
+  @include transition(border-color);
+
+  &:focus {
+    border-color: $primary-color;
+  }
+}
+
+// 滚动条样式
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: $border-color-lighter;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $text-secondary;
+  border-radius: 3px;
+  
+  &:hover {
+    background: $text-regular;
+  }
+}
+
+// 文本选中样式
+::selection {
+  background: $primary-color;
+  color: #fff;
+}

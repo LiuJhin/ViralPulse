@@ -1,0 +1,32 @@
+// 登录页面样式
+.login-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: $background-color-base;
+
+  .login-form {
+    width: 100%;
+    max-width: 400px;
+    padding: 40px;
+    background: $background-color-white;
+    border-radius: $border-radius-base;
+    box-shadow: $box-shadow-base;
+
+    .title {
+      margin-bottom: 30px;
+      text-align: center;
+      font-size: $font-size-large;
+      color: $text-primary;
+    }
+
+    .form-item {
+      margin-bottom: 20px;
+    }
+
+    .submit-btn {
+      width: 100%;
+    }
+  }
+}
