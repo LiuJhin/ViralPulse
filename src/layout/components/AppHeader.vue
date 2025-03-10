@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { Fold, Expand } from '@element-plus/icons-vue'
+import AppNotification from './AppNotification.vue'
 
 defineEmits(['toggle-sidebar'])
 </script>
@@ -13,6 +14,7 @@ defineEmits(['toggle-sidebar'])
       <h1 class="title">ViralPulse Admin</h1>
     </div>
     <div class="right-section">
+      <AppNotification />
       <el-dropdown>
         <span class="user-info">
           <el-avatar :size="32" src="https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png" />
